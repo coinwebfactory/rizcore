@@ -1,0 +1,26 @@
+# /etc/conf.d/rizd: config file for /etc/init.d/rizd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/riz/riz.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/rizd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/rizd.pid"
+
+# Where to write rizd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/rizd"
+
+# User and group to own rizd process
+#BITCOIND_USER="riz"
+#BITCOIND_GROUP="riz"
+
+# Path to rizd executable
+#BITCOIND_BIN="/usr/bin/rizd"
+
+# Nice value to run rizd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

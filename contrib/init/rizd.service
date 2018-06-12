@@ -1,0 +1,26 @@
+[Unit]
+Description=Riz's distributed currency daemon
+After=network.target
+
+[Service]
+User=riz
+Group=riz
+
+Type=forking
+PIDFile=/var/lib/rizd/rizd.pid
+
+ExecStart=/usr/bin/rizd -daemon -pid=/var/lib/rizd/rizd.pid \
+          -conf=/etc/riz/riz.conf -datadir=/var/lib/rizd
+
+ExecStop=-/usr/bin/riz-cli -conf=/etc/riz/riz.conf \
+         -datadir=/var/lib/rizd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
